@@ -1,5 +1,9 @@
 
 (() => {
+
+
+  const $ = (selector) => document.querySelector(selector);
+  const $$ = (selector) => [...document.querySelectorAll(selector)];
  
 // --------menu----------//
 
@@ -152,14 +156,12 @@ if (searchBtn && searchBox) {
 
   /* ---------- Navbar: scroll state, active link, mobile collapse ---------- */
   const nav = $('#navbar');
-  const toTop = $('#toTop');
   const links = $$('.nav-link');
   const sections = links.map(l => $(l.getAttribute('href'))).filter(Boolean);
 
   function onScroll() {
     const y = window.scrollY;
     nav.classList.toggle('scrolled', y > 30);
-    toTop.classList.toggle('show', y > 600);
     const pos = y + 140;
     let current = sections[0];
     sections.forEach(s => { if (s.offsetTop <= pos) current = s; });
@@ -167,7 +169,7 @@ if (searchBtn && searchBox) {
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+ 
 
   const collapseEl = $('#mainNav');
   links.forEach(l => l.addEventListener('click', () => {
@@ -208,43 +210,61 @@ if (searchBtn && searchBox) {
   tickCountdown();
   setInterval(tickCountdown, 1000);
 
-  /* ---------- Booking form ---------- */
-  const form = $('#bookingForm');
-  const dateInput = $('#date');
-  const today = new Date();
-  dateInput.min = `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`;
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    e.stopPropagation();
-    form.classList.add('was-validated');
-    if (!form.checkValidity()) return;
-    const ok = $('#formSuccess');
-    ok.textContent = `Thanks ${$('#name').value.split(' ')[0]}! Your table for ${$('#guests').value} on ${dateInput.value} at ${$('#time').value} is reserved. We sent the details to ${$('#email').value}.`;
-    ok.classList.remove('d-none');
-    form.reset();
-    form.classList.remove('was-validated');
-    notify('Reservation confirmed');
-  });
+                //--------back to top---------------*//
 
-  /* ---------- Newsletter ---------- */
-  $('#newsForm').addEventListener('submit', e => {
-    e.preventDefault();
-    const input = $('#newsEmail');
-    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
-      notify('You are subscribed. Welcome aboard!');
-      input.value = '';
-      input.classList.remove('is-invalid');
+// -------- Back To Top -------- //
+
+// -------- Back To Top -------- //
+
+const backToTop = document.getElementById("back-to-top");
+const backToTopBtn = document.querySelector("#back-to-top button");
+
+if (backToTop && backToTopBtn) {
+
+  backToTop.style.display = "none";
+
+  window.addEventListener("scroll", function () {
+
+    if (window.scrollY > 300) {
+      backToTop.style.display = "block";
     } else {
-      input.classList.add('is-invalid');
-      notify('Please enter a valid email');
+      backToTop.style.display = "none";
     }
+
   });
 
+  backToTopBtn.addEventListener("click", function () {
 
+    const startPosition = window.pageYOffset;
+    const duration = 1000;
+    const startTime = performance.now();
+
+    function scrollAnimation(currentTime) {
+
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Smooth ease-out effect
+      const ease = 1 - Math.pow(1 - progress, 4);
+
+      window.scrollTo(
+        0,
+        startPosition * (1 - ease)
+      );
+
+      if (progress < 1) {
+        requestAnimationFrame(scrollAnimation);
+      }
+
+    }
+
+    requestAnimationFrame(scrollAnimation);
+
+  });
+
+}
 
   /* ---------- Init ---------- */
-  $('#year').textContent = new Date().getFullYear();
-  renderMenu();
-  updateCart();
+ $('#year').textContent = new Date().getFullYear();
 })();

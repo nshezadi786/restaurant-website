@@ -1,0 +1,406 @@
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 991.98px) {
+  .hero { padding-top: 6rem; }
+  .hero-dark { width: 100%; height: 52%; top: auto; bottom: 0; border-radius: 50% 50% 0 0 / 14% 14% 0 0; }
+  .min-vh-hero { min-height: auto; }
+  .bowl-wrap { width: min(86%, 420px); }
+  .chip-2 { left: 2%; }
+  .about-collage { padding-left: 1.5rem; }
+}
+@media (max-width: 575.98px) {
+  .hero-stats { gap: 1.4rem; }
+  .chip { font-size: .72rem; padding: .4rem .7rem; }
+  .countdown div { min-width: 60px; padding: .6rem .7rem; }
+  .news-form { flex-direction: column; max-width: none; }
+  .fl-3 { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  [data-reveal] { opacity: 1; transform: none; }
+}
+/* =========================================
+   MOBILE WIDTH + NAVBAR + HERO FIX
+   768px AND BELOW
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* ---------- PAGE WIDTH ---------- */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    /* ---------- NAVBAR ---------- */
+
+    .site-nav {
+        width: 100%;
+        max-width: 100%;
+        left: 0;
+        right: 0;
+        overflow: visible;
+    }
+
+    .site-nav > .container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .navbar-brand {
+        margin-right: 0;
+        padding: 0;
+        flex: 0 0 auto;
+        min-width: 0;
+    }
+
+    .brand-text {
+        white-space: nowrap;
+    }
+
+    /* TOGGLE RIGHT SIDE */
+
+    .navbar-toggler {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+
+        margin-left: auto !important;
+        margin-right: 0 !important;
+
+        padding: 4px 6px !important;
+
+        width: auto !important;
+        height: auto !important;
+
+        flex: 0 0 auto !important;
+
+        transform: none !important;
+    }
+
+    .navbar-toggler i {
+        display: block;
+        line-height: 1;
+    }
+
+
+    /* ---------- COLLAPSED MENU ---------- */
+
+    .navbar-collapse {
+        width: 100%;
+        flex-basis: 100%;
+        margin-top: 10px;
+    }
+
+    .navbar-nav {
+        width: 100%;
+        margin: 0 !important;
+        padding: 0;
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+
+    .navbar-nav .nav-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-collapse > .d-flex {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .hero > .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .hero .row {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .hero .col-lg-6 {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+    /* ---------- HERO IMAGE ---------- */
+
+    .hero-visual {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: visible;
+        margin: 20px 0 35px;
+    }
+
+    .bowl-wrap {
+        position: relative;
+
+        width: 80vw;
+        height: 80vw;
+
+        max-width: 340px;
+        max-height: 340px;
+
+        margin: 0 auto;
+
+        flex: 0 0 auto;
+    }
+
+    .bowl {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        max-width: 100%;
+        max-height: 100%;
+
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+
+    /* ---------- HERO TEXT ---------- */
+
+    .hero-title {
+        max-width: 100%;
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
+        line-height: 1.05;
+        overflow-wrap: break-word;
+    }
+
+    .hero-lead {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    .hero-stats {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+
+    /* ---------- OTHER ROWS ---------- */
+
+    .section .row,
+    .strip .row,
+    .site-footer .row {
+        max-width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   576px
+========================================= */
+
+@media (max-width: 576px) {
+
+    .container,
+    .hero > .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .brand-mark svg {
+        width: 34px;
+        height: 34px;
+    }
+
+    .brand-text {
+        font-size: 1.2rem;
+    }
+
+    .navbar-toggler {
+        padding: 3px 4px !important;
+    }
+
+    .navbar-toggler i {
+        font-size: 1.8rem !important;
+    }
+
+    .bowl-wrap {
+        width: 78vw;
+        height: 78vw;
+        max-width: 320px;
+        max-height: 320px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* =========================================
+   425px
+========================================= */
+
+@media (max-width: 425px) {
+
+    .container,
+    .hero > .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .site-nav > .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .brand-mark svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .brand-text {
+        font-size: 1.1rem;
+    }
+
+    .navbar-toggler {
+        margin-left: auto !important;
+        padding: 2px 3px !important;
+    }
+
+    .navbar-toggler i {
+        font-size: 1.7rem !important;
+    }
+
+    .bowl-wrap {
+        width: 76vw;
+        height: 76vw;
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    .hero-title {
+        font-size: 2.25rem;
+    }
+}
+
+
+/* =========================================
+   375px
+========================================= */
+
+@media (max-width: 375px) {
+
+    .site-nav > .container {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .brand-mark svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .brand-text {
+        font-size: 1rem;
+    }
+
+    .navbar-toggler i {
+        font-size: 1.6rem !important;
+    }
+
+    .bowl-wrap {
+        width: 74vw;
+        height: 74vw;
+        max-width: 280px;
+        max-height: 280px;
+    }
+
+    .hero-title {
+        font-size: 2.1rem;
+    }
+}
+@media (max-width: 768px) {
+    .nav-link::after {
+        left: 50%;
+        right: auto;
+        width: 40px;
+        transform: translateX(-50%) scaleX(0);
+        transform-origin: center;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+}
+
+@media (max-width: 498px) {
+
+  .btn-group {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+
+  .btn-group .btn {
+    width: 100%;
+    border-radius: 8px !important;
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+}
